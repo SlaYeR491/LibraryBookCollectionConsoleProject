@@ -1,6 +1,7 @@
 ﻿using LibraryBookCollectionConsoleProject.Models;
+using LibraryBookCollectionConsoleProject.Services;
 
-namespace LibraryBookCollectionConsoleProject.Services
+namespace LibraryBookCollectionConsoleProject.SubServices
 {
     public class ClientWishListServices
     {

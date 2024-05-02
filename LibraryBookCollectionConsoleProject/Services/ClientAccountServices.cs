@@ -1,15 +1,14 @@
-﻿using LibraryBookCollectionConsoleProject.Models;
+﻿using LibraryBookCollectionConsoleProject.SubServices;
+using LibraryBookCollectionConsoleProject.Models;
 
 namespace LibraryBookCollectionConsoleProject.Services
 {
     public class ClientAccountServices : AccountServices, ICanBeRemoved
     {
         private readonly DataBase dataBase;
-        private readonly ClientWishListServices clientWish;
-        public ClientAccountServices(DataBase dataBase, ClientWishListServices clientWish) : base(dataBase)
+        public ClientAccountServices(DataBase dataBase) : base(dataBase)
         {
             this.dataBase = dataBase;
-            this.clientWish = clientWish;
         }
         public override void Add(string UserName, string Password)
         {
@@ -21,32 +20,10 @@ namespace LibraryBookCollectionConsoleProject.Services
             else
                 Console.WriteLine($"Account Already Exist");
         }
-        public void AddToWishList(int BookId, int ClientId)
-        {
-            var book = dataBase.Books.GetAll.FirstOrDefault(x => x.Id == BookId);
-            var Client = dataBase.Accounts.GetAll.FirstOrDefault(x => x.Id == ClientId);
-            if (book is null)
-                Console.WriteLine($"No Such A Book With This Id");
-            else if (Client is null)
-                Console.WriteLine($"No Such A Client With This Id");
-            else
-                clientWish.AddWish(book, Client);
-        }
         public void Remove(ClientAccount Account)
         {
             dataBase.Accounts.Remove(Account);
             Console.WriteLine($"Account With UserName:{Account.UserName} Removed");
-        }
-        public void RemoveFromWishList(int BookId, int ClientId)
-        {
-            var book = dataBase.Books.GetAll.FirstOrDefault(x => x.Id == BookId);
-            var Client = dataBase.Accounts.GetAll.FirstOrDefault(x => x.Id == ClientId);
-            if (book is null)
-                Console.WriteLine($"No Such A Book With Id:{BookId}");
-            else if (Client is null)
-                Console.WriteLine($"No Such A Client With Id:{ClientId}");
-            else
-                clientWish.RemoveWish(book, Client);
         }
     }
 }

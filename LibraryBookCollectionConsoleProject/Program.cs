@@ -1,9 +1,10 @@
-﻿using LibraryBookCollectionConsoleProject.Services;
+﻿using LibraryBookCollectionConsoleProject.SubServices;
+using LibraryBookCollectionConsoleProject.Services;
 
 var _database = new DataBase();
 //AdminAccountServices AAS = new AdminAccountServices(_database);
 //AAS.Add("Slayer", "123");
-ClientAccountServices CAS = new ClientAccountServices(_database, new ClientWishListServices(_database));
+ClientAccountServices CAS = new ClientAccountServices(_database);
 CAS.Add("Hamada", "123");
 CAS.Add("Ahmed", "321");
 Console.WriteLine("**************************************************");
@@ -15,10 +16,11 @@ var BS = new BookServices(_database);
 BS.Add("Harry Potter");
 BS.Add("Alis In Wonder World");
 Console.WriteLine("**************************************************");
-CAS.AddToWishList(1, 1);
-CAS.AddToWishList(2, 1);
+ClientServices CS = new ClientServices(_database, new ClientWishListServices(_database));
+CS.AddToWishList(1, 1);
+CS.AddToWishList(2, 1);
 Console.WriteLine("**************************************************");
-CAS.RemoveFromWishList(2, 1);
+CS.RemoveFromWishList(2, 1);
 foreach (var Cwish in _database.ClientWishList.GetAll)
 {
     Console.Write(Cwish.ClientId + ":");

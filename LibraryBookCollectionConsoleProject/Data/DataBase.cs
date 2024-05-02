@@ -1,4 +1,5 @@
-﻿using LibraryBookCollectionConsoleProject.Models;
+﻿using LibraryBookCollectionConsoleProject.Data;
+using LibraryBookCollectionConsoleProject.Models;
 
 namespace LibraryBookCollectionConsoleProject.Services
 {

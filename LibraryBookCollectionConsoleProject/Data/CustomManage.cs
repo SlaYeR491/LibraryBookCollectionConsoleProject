@@ -1,4 +1,4 @@
-﻿namespace LibraryBookCollectionConsoleProject.Services
+﻿namespace LibraryBookCollectionConsoleProject.Data
 {
     public class CustomManage<T>
     {
