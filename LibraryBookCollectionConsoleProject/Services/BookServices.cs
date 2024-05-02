@@ -24,7 +24,7 @@ namespace LibraryBookCollectionConsoleProject.Services
         }
         public void Remove(int Id)
         {
-            var Exist = dataBase.Books.GetAll.FirstOrDefault(x => x.Id == Id,null);
+            var Exist = dataBase.Books.GetAll.FirstOrDefault(x => x.Id == Id, null);
             if (Exist != null)
             {
                 dataBase.Books.Remove(Exist);
@@ -38,6 +38,10 @@ namespace LibraryBookCollectionConsoleProject.Services
         public bool IsAvailable(string Title)
         {
             return dataBase.Books.GetAll.Any(x => x.Title == Title);
+        }
+        public IEnumerable<Book> Search(string Title)
+        {
+            return dataBase.Books.GetAll.Where(x => x.Title == Title);
         }
     }
 }

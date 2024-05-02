@@ -1,5 +1,4 @@
 ﻿using LibraryBookCollectionConsoleProject.Models;
-using LibraryBookCollectionConsoleProject.Services;
 
 namespace LibraryBookCollectionConsoleProject.Services
 {
@@ -9,8 +8,10 @@ namespace LibraryBookCollectionConsoleProject.Services
         {
             Books = new CustomManage<Book>();
             Accounts = new CustomManage<Account>();
+            ClientWishList = new CustomManage<ClientWishList>();
         }
         public CustomManage<Book> Books { get; }
         public CustomManage<Account> Accounts { get; }
+        public CustomManage<ClientWishList> ClientWishList { get; }
     }
 }

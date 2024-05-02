@@ -26,3 +26,4 @@ C:\Users\SlaYeR\Documents\GitHub\LibraryBookCollectionConsoleProject\LibraryBook
 C:\Users\SlaYeR\Documents\GitHub\LibraryBookCollectionConsoleProject\LibraryBookCollectionConsoleProject\obj\Debug\net8.0\LibraryBookCollectionConsoleProject.pdb
 C:\Users\SlaYeR\Documents\GitHub\LibraryBookCollectionConsoleProject\LibraryBookCollectionConsoleProject\obj\Debug\net8.0\LibraryBookCollectionConsoleProject.genruntimeconfig.cache
 C:\Users\SlaYeR\Documents\GitHub\LibraryBookCollectionConsoleProject\LibraryBookCollectionConsoleProject\obj\Debug\net8.0\ref\LibraryBookCollectionConsoleProject.dll
+C:\Users\SlaYeR\Documents\GitHub\LibraryBookCollectionConsoleProject\LibraryBookCollectionConsoleProject\obj\Debug\net8.0\LibraryBookCollectionConsoleProject.sourcelink.json

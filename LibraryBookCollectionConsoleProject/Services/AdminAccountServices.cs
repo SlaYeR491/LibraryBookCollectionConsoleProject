@@ -5,7 +5,7 @@ namespace LibraryBookCollectionConsoleProject.Services
     internal class AdminAccountServices : AccountServices
     {
         private readonly DataBase dataBase;
-        public AdminAccountServices(DataBase dataBase)
+        public AdminAccountServices(DataBase dataBase) : base(dataBase)
         {
             this.dataBase = dataBase;
         }
@@ -13,17 +13,13 @@ namespace LibraryBookCollectionConsoleProject.Services
         {
             if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == UserName, null) is null)
             {
-                dataBase.Accounts.Add(new AdminAccount() { Password = Password, UserName = UserName, Id = ++IdCnt });
+                dataBase.Accounts.Add(new AdminAccount() { Password = Password, UserName = UserName, Id = ++IdCnt, IsAdmin = true });
                 Console.WriteLine($"Account With Id={IdCnt} Added Succesfully");
             }
             else
             {
                 Console.WriteLine($"Account Already Exist");
             }
-        }
-        public override void Edit(int Id)
-        {
-
         }
     }
 }
