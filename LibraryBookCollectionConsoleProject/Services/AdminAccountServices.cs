@@ -11,15 +11,13 @@ namespace LibraryBookCollectionConsoleProject.Services
         }
         public override void Add(string UserName, string Password)
         {
-            if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == UserName, null) is null)
+            if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == UserName,null) is null)
             {
                 dataBase.Accounts.Add(new AdminAccount() { Password = Password, UserName = UserName, Id = ++IdCnt, IsAdmin = true });
                 Console.WriteLine($"Account With Id={IdCnt} Added Succesfully");
             }
             else
-            {
                 Console.WriteLine($"Account Already Exist");
-            }
         }
     }
 }

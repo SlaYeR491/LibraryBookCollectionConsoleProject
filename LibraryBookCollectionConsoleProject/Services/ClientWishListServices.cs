@@ -9,27 +9,28 @@ namespace LibraryBookCollectionConsoleProject.Services
         {
             this.dataBase = dataBase;
         }
-        public void AddWish(Book book, int ClientId)
+        public void AddWish(Book book, Account Client)
         {
-            var CList = dataBase.ClientWishList.GetAll.FirstOrDefault(x => x.ClientId == ClientId, null);
-            if (CList == null)
+            var CList = dataBase.ClientWishList.GetAll.FirstOrDefault(x => x.ClientId == Client.Id, null);
+            if (CList is null)
             {
-                var NWL = new ClientWishList() { ClientId = ClientId };
+                var NWL = new ClientWishList() { ClientId = Client.Id };
                 NWL.WishList.Add(book);
                 dataBase.ClientWishList.Add(NWL);
             }
             else
                 CList.WishList.Add(book);
+            Console.WriteLine($"Book With Title:{book.Title} Added To Account:{Client.UserName}");
         }
-        public void RemoveWish(Book book, int ClientId)
+        public void RemoveWish(Book book, Account Client)
         {
-            var CList = dataBase.ClientWishList.GetAll.FirstOrDefault(x => x.ClientId == ClientId, null);
-            if (CList == null)
+            var CList = dataBase.ClientWishList.GetAll.FirstOrDefault(x => x.ClientId == Client.Id, null);
+            if (CList is null)
                 Console.WriteLine($"Empty Wish List");
             else
             {
                 CList.WishList.Remove(book);
-                Console.WriteLine($"Book With Title:{book.Title} Removed Succesfuly");
+                Console.WriteLine($"Book With Title:{book.Title} Removed From Account:{Client.UserName}");
             }
         }
     }
