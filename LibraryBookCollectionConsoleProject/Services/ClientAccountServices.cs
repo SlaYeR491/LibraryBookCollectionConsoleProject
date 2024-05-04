@@ -1,9 +1,9 @@
-﻿using LibraryBookCollectionConsoleProject.SubServices;
+﻿using LibraryBookCollectionConsoleProject.Abstractions;
 using LibraryBookCollectionConsoleProject.Models;
 
 namespace LibraryBookCollectionConsoleProject.Services
 {
-    public class ClientAccountServices : AccountServices, ICanBeRemoved
+    public class ClientAccountServices : AccountServices, IRemoveAccount
     {
         private readonly DataBase dataBase;
         public ClientAccountServices(DataBase dataBase) : base(dataBase)
@@ -15,15 +15,31 @@ namespace LibraryBookCollectionConsoleProject.Services
             if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == UserName, null) is null)
             {
                 dataBase.Accounts.Add(new ClientAccount() { Password = Password, UserName = UserName, Id = ++IdCnt });
-                Console.WriteLine($"Account With Id={IdCnt} Added Succesfully");
+                Console.WriteLine($"ClientAccount With Id={IdCnt} Added Succesfully");
             }
             else
                 Console.WriteLine($"Account Already Exist");
         }
-        public void Remove(ClientAccount Account)
+        public override void Add(Account Acc)
         {
-            dataBase.Accounts.Remove(Account);
-            Console.WriteLine($"Account With UserName:{Account.UserName} Removed");
+            if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == Acc.UserName, null) is null)
+            {
+                dataBase.Accounts.Add(new ClientAccount() { Password = Acc.Password, UserName = Acc.UserName, Id = ++IdCnt });
+                Console.WriteLine($"ClientAccount With Id={IdCnt} Added Succesfully");
+            }
+            else
+                Console.WriteLine($"Account Already Exist");
+        }
+        public void RemoveAccount(ICanBeRemoved Account)
+        {
+            var acc = Account as Account;
+            if (dataBase.Accounts.GetAll.FirstOrDefault(a => a.UserName == acc.UserName, null) is not null)
+            {
+                dataBase.Accounts.Remove(acc);
+                Console.WriteLine($"Account With UserName:{acc.UserName} Removed");
+            }
+            else
+                Console.WriteLine($"Account With UserName:{acc.UserName} Not Exist");
         }
     }
 }

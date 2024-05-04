@@ -1,6 +1,7 @@
 ﻿namespace LibraryBookCollectionConsoleProject.Models
 {
-    public class ClientAccount : Account, ICanBeRemoved
+    public class CEOAccount : Account
     {
+        
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace LibraryBookCollectionConsoleProject.Models
 {
-    public class AdminAccount : Account
+    public class AdminAccount : Account, ICanBeRemoved
     {
     }
 }

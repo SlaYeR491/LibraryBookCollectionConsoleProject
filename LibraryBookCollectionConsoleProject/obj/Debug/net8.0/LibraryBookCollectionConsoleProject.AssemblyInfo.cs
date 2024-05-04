@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryBookCollectionConsoleProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d88cc4a6157ddd9c2535d879f84e7e01b2d2afe3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+215d7dede5d1aa51ad858d5113e2960cfa872eaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryBookCollectionConsoleProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryBookCollectionConsoleProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,6 +11,7 @@ namespace LibraryBookCollectionConsoleProject.Models
             this.dataBase = dataBase;
         }
         public abstract void Add(string UserName, string Password);
+        public abstract void Add(Account Acc);
         protected bool Check(int Id)
         {
             return dataBase.Accounts.GetAll.FirstOrDefault(a => a.Id == Id) != null;
